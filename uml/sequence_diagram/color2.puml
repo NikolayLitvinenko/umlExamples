@@ -1,0 +1,70 @@
+@startuml styles
+skinparam {
+ 'monochrome true
+ 'actorStyle awesome
+ BackgroundColor White 'фон диаграммы'
+ BoxPadding 10 'отступ вокруг объектов'
+ Roundcorner 20 'радиус закругления углов'
+ Maxmessagesize 300 'макс длина текста сообщения'
+ DatabaseBackgroundColor Wheat
+ DatabaseBorderColor IndianRed  'цвет границы бд'
+ DatabaseBorderThickness 2 'толшина границы бд'
+ DatabaseFontColor orange
+ DatabaseFontSize 14  'размер шрифта'
+ QueueBackgroundColor Wheat
+ QueueBorderColor IndianRed
+ QueueBorderThickness 2
+ QueueFontColor Green
+ QueueFontSize 14
+ }
+skinparam note {
+ BackgroundColor BlanchedAlmond
+ BorderColor SandyBrown
+ }
+skinparam title {
+ BorderRoundCorner 10
+ BorderThickness 1.5
+ BorderColor Firebrick
+ BackgroundColor MistyRose
+ FontSize 20
+ }
+skinparam sequence {
+ ArrowThickness 1.5 /'толщина стрелок'/
+ ParticipantFontSize 14 /'размер шрифта для участников на диаграме'/
+ ParticipantPadding 30
+ BoxBackgroundColor Azure /'цвет фона блоков на диаграмме'/
+ MessageAlign center    /'выравнивание текста сообщений на диаграмме'/
+ ArrowColor DarkBlue    /'цвет стрелок на диаграмме'/
+ ArrowFontColor Black   /'цвет шрифта стрелок на диаграмме'/
+ LifeLineBorderColor DarkGray   /'цвет границы для линии жизни'/
+ LifeLineBackgroundColor Orange /'цвет фона для линий жизни на диаграмме'/
+ GroupBackgroundColor Yellow /'цвет фона для групп на диаграмме'/
+ GroupBorderColor DimGray /'цвет границы для групп на диаграмме'/
+ ActorBackgroundColor Blue /'цвет фона для актеров на диаграмме'/
+ ActorBorderColor Maroon
+ ActorFontColor Black /'цвет шрифта для актеров на диаграмме.'/
+ ParticipantBackgroundColor PeachPuff /'цвет фона для участников на диаграмме'/
+ ParticipantBorderColor Sienna
+ ParticipantFontColor Black
+ }
+ hide footbox
+ autonumber 45 5 "<font color=red><b>Message 0 "
+ title Your diagram title here
+ box Net segment Public
+ actor Aaaactor as act
+ end box
+ box Net segment A
+  participant "Component" as a
+  database Database as db
+ end box
+ box Net segment B
+  queue "Broker" as b
+ end box
+ act -> a: Hi there
+ Group Custom group name
+
+a ->b: request many parameters
+  return response with response code
+  note left: aaa
+ end
+ @enduml

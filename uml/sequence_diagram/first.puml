@@ -1,0 +1,36 @@
+@startuml slide_skinparam
+title "Практика"
+skinparam Legend {
+BackgroundColor Linen
+FontColor Back
+BorderThickness 0
+FontSize 10
+}
+autonumber
+skinparam {
+MaxMessageSize 120
+}
+skinparam  sequence {
+ ParticipantPadding 30
+ MessageAlign center
+ }
+ box Segment1 #PaleGreen
+Actor "Пользователь" as u order 10
+end box
+box Segment2 #Yellow
+participant "Клиент" as c order 20
+end box
+participant "Server" as s order 30
+queue "Брокер" as br order 25
+database "БД" as db order 27
+
+
+u-> c: Наполнить корзину и подтвердить заказ
+c ->c: (отобразить что заказ отправлен на обработку)
+c -> s: Передать данные заказа
+s -> s:Обработать заказ на сервере
+!$st = "статус заказа"
+s -> s:Обновить $st
+s -->c: Передать $st
+c ->c: Отобразить $st
+@enduml
